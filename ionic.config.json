@@ -1,0 +1,8 @@
+{
+  "name": "sprint",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "df6e8919"
+}
