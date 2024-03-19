@@ -1,0 +1,24 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title class="title-login">LOGIN</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-list>
+      <ion-item>
+        <ion-input labelPlacement="floating" value="">
+          <div slot="label">Email*</div>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input labelPlacement="floating" value="" type="password">
+          <div slot="label">Password*</div>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-button (click)="login()">LogIn</ion-button>
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>
+
