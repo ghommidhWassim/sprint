@@ -2,7 +2,21 @@ ion-card{
     margin: auto auto;
     
     width: 90vw;
+    .submit-button-login {
+      ion-button{
+        margin: 0 auto;
+        font-weight: bold;
+    }
+    }
 }
 .title-login{
     text-align: center;
+}
+.logo-login{
+    width: 40vw;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    top: 10vh;
+    align-self: center;
 }
