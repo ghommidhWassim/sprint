@@ -5,21 +5,32 @@
   </ion-card-header>
 
   <ion-card-content>
-    <ion-list>
-      <ion-item>
-        <ion-input labelPlacement="floating" value="">
-          <div slot="label">Email*</div>
-        </ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input labelPlacement="floating" value="" type="password">
-          <div slot="label">Password*</div>
-        </ion-input>
-      </ion-item>
-      <ion-item class="submit-button-login">
-        <ion-button (click)="login()" size="default">LogIn</ion-button>
-      </ion-item>
-    </ion-list>
+    <form [formGroup]="formLogin" (ngSubmit)="login()">
+      <ion-list>
+        <ion-item>
+          <ion-input labelPlacement="floating" formControlName="email">
+            <div slot="label">Email*</div>
+          </ion-input>
+        </ion-item>
+        <ion-item *ngIf="formLogin.get('email')?.dirty && formLogin.get('email')?.hasError('email')">
+          <p class="text-danger">
+            Invalid email format
+          </p>
+        </ion-item>
+        <ion-item>
+          <ion-input labelPlacement="floating" type="password" formControlName="password">
+            <div slot="label">Password*</div>
+          </ion-input>
+        </ion-item>
+        <ion-item *ngIf="formLogin.get('password')?.dirty && formLogin.get('password')?.hasError('minlength')">
+          <p class="text-danger" >
+            Minimum 6 characters required
+          </p>
+        </ion-item>
+        <ion-item class="submit-button-login">
+          <ion-button type="submit" [disabled]="formLogin.invalid" size="default">Log In</ion-button>
+        </ion-item>
+      </ion-list>
+    </form>
   </ion-card-content>
 </ion-card>
-
