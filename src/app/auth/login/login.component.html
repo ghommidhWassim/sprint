@@ -1,4 +1,8 @@
-<img src="../../../assets/icon/logoTest.png" class="logo-login" alt="">
+<ion-img
+src="../../../assets/icon/logoTest.png"
+  alt="The Wisconsin State Capitol building in Madison, WI at night" 
+  class="logo-login"
+></ion-img>
 <ion-card>
   <ion-card-header>
     <ion-card-title class="title-login">LOGIN</ion-card-title>
@@ -33,4 +37,12 @@
       </ion-list>
     </form>
   </ion-card-content>
+<ion-list class="links-login">
+  <ion-item>
+    <a>mot de passe oublié</a>
+  </ion-item>
+  <ion-item>
+    <a  [routerLink]="['/auth/sign-up']" routerLinkActive="router-link-active" >creer un compte</a>
+  </ion-item>
+</ion-list>
 </ion-card>
