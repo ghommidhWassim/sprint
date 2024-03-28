@@ -1,0 +1,23 @@
+.center-card {
+margin-top: 20vh;
+}
+ion-list{
+    align-items: center;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    ion-item {
+        i {
+           font-size:500%;
+        }
+        ion-button{
+           font-weight: bold;
+           font-size: large;
+           height: 50px;
+           width: 100px;
+       }
+   }
+}
+
+

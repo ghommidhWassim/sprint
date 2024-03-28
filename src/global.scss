@@ -24,3 +24,10 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+.remove-list-line {
+    --inner-border-width: 0; /* Remove the inner border */
+    --border-width: 0; /* Remove the outer border */
+    --highlight-height: 0; /* Remove the highlight on focus */
+    text-decoration: none; /* Remove underline */
+  }

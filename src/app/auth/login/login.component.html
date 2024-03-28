@@ -16,7 +16,7 @@ src="../../../assets/icon/logoTest.png"
             <div slot="label">Email*</div>
           </ion-input>
         </ion-item>
-        <ion-item *ngIf="formLogin.get('email')?.dirty && formLogin.get('email')?.hasError('email')">
+        <ion-item *ngIf="formLogin.get('email')?.dirty && formLogin.get('email')?.hasError('email')" class="remove-list-line">
           <p class="text-danger">
             Invalid email format
           </p>
@@ -26,22 +26,22 @@ src="../../../assets/icon/logoTest.png"
             <div slot="label">Password*</div>
           </ion-input>
         </ion-item>
-        <ion-item *ngIf="formLogin.get('password')?.dirty && formLogin.get('password')?.hasError('minlength')">
+        <ion-item *ngIf="formLogin.get('password')?.dirty && formLogin.get('password')?.hasError('minlength')" class="remove-list-line">
           <p class="text-danger" >
             Minimum 6 characters required
           </p>
         </ion-item>
-        <ion-item class="submit-button-login">
+        <ion-item class="submit-button-login remove-list-line">
           <ion-button type="submit" [disabled]="formLogin.invalid" size="default">Log In</ion-button>
         </ion-item>
       </ion-list>
     </form>
   </ion-card-content>
-<ion-list class="links-login">
-  <ion-item>
+<ion-list class="links-login ">
+  <ion-item class="remove-list-line">
     <a>mot de passe oublié</a>
   </ion-item>
-  <ion-item>
+  <ion-item class="remove-list-line">
     <a  [routerLink]="['/auth/sign-up']" routerLinkActive="router-link-active" >creer un compte</a>
   </ion-item>
 </ion-list>
