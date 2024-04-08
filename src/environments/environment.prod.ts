@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  backendURl:"besttrip.42web.io/api"
 };
