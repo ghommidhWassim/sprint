@@ -28,7 +28,14 @@
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding"> Tap the button in the toolbar to open the menu. 
-    <div #mapContainer [style.height]="mapHeight" [style.width]="mapWidth"></div>
+    <!-- <div #mapContainer [style.height]="mapHeight" [style.width]="mapWidth"></div> -->
+    <google-map height="40vh"
+            width="90vw"
+            [center]="center"
+            [zoom]="zoom2"
+            (mapClick)="moveMap($event)"
+            (mapMousemove)="move($event)">
+</google-map>
   </ion-content>
 </div>
 

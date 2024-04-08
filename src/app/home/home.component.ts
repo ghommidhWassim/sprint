@@ -6,8 +6,8 @@ import { StorageService } from '../services/storage.service';
 import { User } from '../models/user';
 
 
-
 import { debounceTime } from 'rxjs/operators';
+import { Storage } from '@ionic/storage';
 
 export interface IMapDataPoint {
   longitude: number;
@@ -97,10 +97,17 @@ export class HomeComponent  implements OnInit, AfterContentInit {
     vehicule: null,
     token: ''
   }
+  display: any;
+  center: google.maps.LatLngLiteral = {
+      lat: 22.2736308,
+      lng: 70.7512555
+  };
+  zoom2 = 6;
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  constructor(private storage: StorageService) { }
+  constructor(private storage: StorageService, private st:Storage) { }
 
   async ngOnInit() {
+    this.st.set('test','testvalue')
     this.user= await this.storage.get('user')
     console.log(this.user
       );
@@ -116,6 +123,24 @@ export class HomeComponent  implements OnInit, AfterContentInit {
       }
   }
 
+
+  /*------------------------------------------
+  --------------------------------------------
+  moveMap()
+  --------------------------------------------
+  --------------------------------------------*/
+  moveMap(event: google.maps.MapMouseEvent) {
+      if (event.latLng != null) this.center = (event.latLng.toJSON());
+  }
+
+  /*------------------------------------------
+  --------------------------------------------
+  move()
+  --------------------------------------------
+  --------------------------------------------*/
+  move(event: google.maps.MapMouseEvent) {
+      if (event.latLng != null) this.display = event.latLng.toJSON();
+  }
   ngAfterContentInit() {
     this.mapPoints.changes
       .pipe(
