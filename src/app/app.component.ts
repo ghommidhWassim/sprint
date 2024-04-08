@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { StorageService } from './services/storage.service';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent  {
   token:string= ''
   public appPages = [
     { title: 'Inbox', url: '/folder/inbox', icon: 'mail' },
@@ -15,7 +16,7 @@ export class AppComponent {
     { title: 'Spam', url: '/folder/spam', icon: 'warning' },
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  constructor() {
+  constructor(private storage:StorageService) {
     const storedToken = localStorage.getItem('token');
     if (storedToken !== null) {
       this.token = storedToken;
@@ -24,6 +25,9 @@ export class AppComponent {
       // You can assign a default value or perform any other necessary action
       this.token = ''; // Or any default value you prefer
     }
+    
+
   }
+
 
 }
