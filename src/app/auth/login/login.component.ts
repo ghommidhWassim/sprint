@@ -28,7 +28,7 @@ export class LoginComponent  implements OnInit {
   login(){
 
     if(this.formLogin.value.email && this.formLogin.value.password){
-      console.log(this.formLogin.value);
+      console.log('this.formLogin.value',this.formLogin.value);
       
       this.store.dispatch(getLogin({email:this.formLogin.value.email, password:this.formLogin.value.password}))    
 

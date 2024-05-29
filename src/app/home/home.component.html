@@ -27,15 +27,34 @@
       <ion-title>Menu</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content class="ion-padding"> Tap the button in the toolbar to open the menu. 
+  <ion-content class="ion-padding">
     <!-- <div #mapContainer [style.height]="mapHeight" [style.width]="mapWidth"></div> -->
-    <google-map height="40vh"
-            width="90vw"
-            [center]="center"
-            [zoom]="zoom2"
-            (mapClick)="moveMap($event)"
-            (mapMousemove)="move($event)">
-</google-map>
+    <ion-list>
+      <ion-item>
+        <ion-input labelPlacement="floating" >
+          <div slot="label">Depart</div>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input labelPlacement="floating" type="password" >
+          <div slot="label">Destination</div>
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="submit-button-login remove-list-line">
+        <ion-button type="submit" [disabled]="true" size="default">Confirmer</ion-button>
+      </ion-item>
+    </ion-list>
+    <div>
+      <google-map height="40vh"
+      width="93vw"
+      [center]="center"
+      [zoom]="zoom2"
+      (mapClick)="moveMap($event)"
+      (mapMousemove)="move($event)">
+      </google-map>
+    </div>
+
   </ion-content>
 </div>
 

@@ -1,4 +1,4 @@
-<ion-img
+<!-- <ion-img
 src="../../../assets/icon/logoTest.png"
   alt="The Wisconsin State Capitol building in Madison, WI at night" 
   class="logo-login"
@@ -45,4 +45,58 @@ src="../../../assets/icon/logoTest.png"
     <a  [routerLink]="['/auth/sign-up']" routerLinkActive="router-link-active" >creer un compte</a>
   </ion-item>
 </ion-list>
-</ion-card>
+</ion-card> -->
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-buttons slot="end">
+      <ion-button color="secondary" routerLink="/sign-up">
+        Sign up
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="ion-padding ion-full-height ion-flex ion-flex-center">
+
+    <div class="logo-container">
+      <h1 class="animate__animated animate__fadeInUp">
+        <ion-text color="light">Sign In</ion-text>
+      </h1>
+      <p class="animate__animated animate__fadeInUp">
+        <ion-text color="secondary">Login to your account.</ion-text>
+      </p>
+    </div>
+
+    <!-- Login form -->
+    <form class="form-default" [formGroup]="formLogin" (ngSubmit)="login()">
+      <ion-item color="dark" class="animate__animated animate__fadeInUp">
+        <ion-label position="floating">
+          <ion-icon name="mail" item-start></ion-icon>
+          Email
+        </ion-label>
+        <ion-input color="secondary" type="email" formControlName="email"></ion-input>
+      </ion-item>
+
+      <ion-item color="dark" class="animate__animated animate__fadeInUp">
+        <ion-label position="floating">
+          <ion-icon name="lock-closed-outline"></ion-icon>
+          Password
+        </ion-label>
+        <ion-input color="secondary" formControlName="password" type="password" placeholder="Your password"></ion-input>
+      </ion-item>
+
+      <ion-button class="ion-margin-top" type="submit" expand="block" size="large" color="secondary">
+        Sign in
+      </ion-button>
+
+      <ion-button color="light" fill="clear" expand="block" class="ion-button-small ion-margin-top-medium" routerLink="/password-reset">
+        Forgot password?
+      </ion-button>
+    </form>
+
+
+  </div>
+
+</ion-content>

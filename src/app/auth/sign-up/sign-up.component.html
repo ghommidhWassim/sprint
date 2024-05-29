@@ -1,22 +1,26 @@
-<ion-header>
-  <ion-toolbar>
+
+
+<ion-header [translucent]="true">
+  <ion-toolbar >
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/auth"></ion-back-button>
     </ion-buttons>
     <ion-title>Creer un compte</ion-title>
+
   </ion-toolbar>
 </ion-header>
-<ion-content>
-  <ion-card class="center-card">
-    <ion-card-content>
-      <ion-list>
-        <ion-item class="remove-list-line"> <i class="ph ph-user-circle signup-icons"></i>
+
+<ion-content >
+  <ion-card  class="center-card">
+    <ion-card-content >
+      <ion-list >
+        <ion-item lines="none" class="remove-list-line"> <i class="ph ph-user-circle signup-icons"></i>
         </ion-item>
-        <ion-item class="remove-list-line">
+        <ion-item lines="none" class="remove-list-line">
           <h1>Client</h1>
         </ion-item>
-        <ion-item class="remove-list-line">
-          <ion-button id="open-modal-client" color="success">choisir</ion-button>
+        <ion-item lines="none" class="remove-list-line">
+          <ion-button id="open-modal-client" color="primary">choisir</ion-button>
         </ion-item>
       </ion-list>
     </ion-card-content>
@@ -24,13 +28,13 @@
   <ion-card>
     <ion-card-content>
       <ion-list>
-        <ion-item class="remove-list-line"> <i class="ph ph-truck"></i>
+        <ion-item lines="none" class="remove-list-line"> <i class="ph ph-truck"></i>
         </ion-item>
-        <ion-item class="remove-list-line">
-          <h1>Livreur</h1>
+        <ion-item lines="none" class="remove-list-line">
+          <h1>Transporteur</h1>
         </ion-item>
-        <ion-item class="remove-list-line">
-          <ion-button color="success">choisir</ion-button>
+        <ion-item lines="none" class="remove-list-line">
+          <ion-button color="primary">choisir</ion-button>
         </ion-item>
       </ion-list>
     </ion-card-content>
@@ -81,7 +85,7 @@
               <ion-col>
                 <ion-item>
                   <ion-select placeholder="prefix">
-                    <ion-select-option *ngFor="let i of country" [value]="i.code">{{i.iso}} {{i.code}} 
+                    <ion-select-option *ngFor="let i of country" [value]="i.code">{{i.iso}} {{i.code}}
                     </ion-select-option>
                   </ion-select>
                 </ion-item>
@@ -99,9 +103,9 @@
             </ion-row>
           </ion-row>
         </ion-grid>
-        
- 
-  
+
+
+
 
       </ion-content>
     </ng-template>
