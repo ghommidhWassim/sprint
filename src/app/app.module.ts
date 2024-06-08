@@ -18,9 +18,11 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { Drivers } from '@ionic/storage';
 import { TokenInterceptor } from './services/token-interceptor.interceptor';
 import { GoogleMapsModule } from '@angular/google-maps'
+import { WidgetsModule } from './widgets/widgets.module';
 @NgModule({
   declarations: [AppComponent, HomeComponent],
   imports: [
+    WidgetsModule,
     GoogleMapsModule,
     HttpClientModule,
     IonicModule, 

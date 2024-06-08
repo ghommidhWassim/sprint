@@ -31,7 +31,7 @@
     <!-- <div #mapContainer [style.height]="mapHeight" [style.width]="mapWidth"></div> -->
     <ion-list>
       <ion-item>
-        <ion-input labelPlacement="floating" >
+        <ion-input labelPlacement="floating" #departFeild>
           <div slot="label">Depart</div>
         </ion-input>
       </ion-item>
@@ -46,13 +46,8 @@
       </ion-item>
     </ion-list>
     <div>
-      <google-map height="40vh"
-      width="93vw"
-      [center]="center"
-      [zoom]="zoom2"
-      (mapClick)="moveMap($event)"
-      (mapMousemove)="move($event)">
-      </google-map>
+      <app-map></app-map>
+
     </div>
 
   </ion-content>

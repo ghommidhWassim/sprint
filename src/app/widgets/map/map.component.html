@@ -1,0 +1,10 @@
+<p>
+  map works!
+</p>
+<google-map height="40vh"
+      width="93vw"
+      [center]="center"
+      [zoom]="zoom2"
+      (mapClick)="moveMap($event)"
+      (mapMousemove)="move($event)">
+      </google-map>
