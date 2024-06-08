@@ -17,24 +17,22 @@ import { StorageService } from 'src/app/services/storage.service';
         ofType(AuthActions.GET_LOGIN),
         switchMap(({ email, password }) =>
     {       console.log(email, password);
-        
+
         return this.authService.login(email, password).pipe(
             switchMap(async (userdata:any) =>{
                 console.log('succes ', userdata);
                 if(userdata.status==404){
                     this.presentToast(); // Display toast in case of error
                 }else{
-                    await this.storage.set('token',userdata.token)
-                    await this.storage.set('user',userdata.user)
-                    console.log('test effect',await this.storage.get('token'));
-                    
-
+                     this.storage.set('token',userdata.token)
+                     this.storage.set('user',userdata.user)
+                    console.log('test effect', this.storage.get('token'));
                     this.route.navigate(['/home'])
                 }
                 return AuthActions.getLoginSucces({ userdata })}),
-                catchError(error => {                    
+                catchError(error => {
                     return of(AuthActions.getLoginFailure()); // Return observable emitting login failure action with error
-                    ;
+
                 })
             )}
         )
@@ -46,7 +44,7 @@ import { StorageService } from 'src/app/services/storage.service';
         private route: Router,
         private actions$: Actions,
         private authService: AuthService,
-        private toastController: ToastController 
+        private toastController: ToastController
     ) {}
     async presentToast() {
         const toast = await this.toastController.create({

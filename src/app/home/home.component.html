@@ -1,23 +1,4 @@
-<ion-menu contentId="main-content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>{{user.firstname}} {{user.lastname}}</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content class="ion-padding">
-    <ion-list id="inbox-list">
-      <ion-list-header>Inbox</ion-list-header>
-      <ion-note>hi&#64;ionicframework.com</ion-note>
-
-      <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-        <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
-          <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-          <ion-label>{{ p.title }}</ion-label>
-        </ion-item>
-      </ion-menu-toggle>
-    </ion-list>
-  </ion-content>
-</ion-menu>
+<app-side-menu></app-side-menu>
 <div class="ion-page" id="main-content">
   <ion-header>
     <ion-toolbar>
@@ -29,16 +10,13 @@
   </ion-header>
   <ion-content class="ion-padding">
     <!-- <div #mapContainer [style.height]="mapHeight" [style.width]="mapWidth"></div> -->
+
     <ion-list>
       <ion-item>
-        <ion-input labelPlacement="floating" #departFeild>
-          <div slot="label">Depart</div>
-        </ion-input>
+        <app-google-autocomplete-input [inputName]="'Depart'" ></app-google-autocomplete-input>
       </ion-item>
       <ion-item>
-        <ion-input labelPlacement="floating" type="password" >
-          <div slot="label">Destination</div>
-        </ion-input>
+        <app-google-autocomplete-input [inputName]="'Destination'"></app-google-autocomplete-input>
       </ion-item>
 
       <ion-item class="submit-button-login remove-list-line">

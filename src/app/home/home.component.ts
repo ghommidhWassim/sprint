@@ -8,9 +8,8 @@ import {IonInput} from "@ionic/angular";
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent  implements OnInit, AfterViewInit {
-  @ViewChild('departFeild', { read: IonInput, static: false }) departFeild!: IonInput;
-
+export class HomeComponent  implements OnInit {
+  inputName1='Depart'
   public appPages = [
     { title: 'Inbox', url: '/folder/inbox', icon: 'mail' },
     { title: 'Outbox', url: '/folder/outbox', icon: 'paper-plane' },
@@ -30,37 +29,12 @@ export class HomeComponent  implements OnInit, AfterViewInit {
     vehicule: null,
     token: ''
   }
-  autoComplete: google.maps.places.Autocomplete | undefined;
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   constructor(private storage: StorageService, private st:Storage) { }
 
-  async ngOnInit() {
-    this.st.set('test','testvalue')
-    this.user= await this.storage.get('user')
-    console.log(this.user);
-
-  }
-   ngAfterViewInit() {
-      this.initializeAutocomplete();
+  ngOnInit() {
   }
 
-  initializeAutocomplete() {
-    //const nativeInput = this.departFeild.nativeElement.shadowRoot.querySelector('input');
-    //const el = this.departFeild.nativeElement.shadowRoot.querySelector('input') as HTMLInputElement;
-    //const nativeInputElement =this.departFeild.getInputElement()
-    this.departFeild.getInputElement().then((nativeInputElement: HTMLInputElement) => {
-      console.log('nativeInputElement', nativeInputElement);
-      console.log('autocomplete', this.autoComplete);
-
-      this.autoComplete = new google.maps.places.Autocomplete(nativeInputElement);
-      console.log('autocomplete11', this.autoComplete);
-      this.autoComplete.addListener('place_changed', () => {
-        const depart = this.autoComplete?.getPlace();
-        console.log('depart', depart);
-      });
-    });
-
-  }
   // private ensureScript() {
   //   const document = this.mapDiv.nativeElement.ownerDocument;
   //   const script = <HTMLScriptElement>document.querySelector('script[id="googlemaps"]');
