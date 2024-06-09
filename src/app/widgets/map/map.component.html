@@ -7,4 +7,5 @@
       [zoom]="zoom2"
       (mapClick)="moveMap($event)"
       (mapMousemove)="move($event)">
+    <map-directions-renderer *ngIf="directionResult" [directions]="directionResult"></map-directions-renderer>
       </google-map>

@@ -13,18 +13,18 @@
 
     <ion-list>
       <ion-item>
-        <app-google-autocomplete-input [inputName]="'Depart'" ></app-google-autocomplete-input>
+        <app-google-autocomplete-input [inputName]="'Depart'" (PlaceGeo)="getGeo($event,'depart')"></app-google-autocomplete-input>
       </ion-item>
       <ion-item>
-        <app-google-autocomplete-input [inputName]="'Destination'"></app-google-autocomplete-input>
+        <app-google-autocomplete-input [inputName]="'Destination'" (PlaceGeo)="getGeo($event,'destination')"></app-google-autocomplete-input>
       </ion-item>
 
       <ion-item class="submit-button-login remove-list-line">
-        <ion-button type="submit" [disabled]="true" size="default">Confirmer</ion-button>
+        <ion-button type="submit" (click)="setMapGeo()"  size="default">Confirm</ion-button>
       </ion-item>
     </ion-list>
     <div>
-      <app-map></app-map>
+      <app-map [depart]="depart" [destination]="destination"></app-map>
 
     </div>
 

@@ -3,38 +3,41 @@ import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/
 import { StorageService } from '../services/storage.service';
 import { Storage } from '@ionic/storage';
 import {IonInput} from "@ionic/angular";
+import {Event} from "@angular/router";
+import {isEmpty} from "rxjs";
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent  implements OnInit {
-  inputName1='Depart'
-  public appPages = [
-    { title: 'Inbox', url: '/folder/inbox', icon: 'mail' },
-    { title: 'Outbox', url: '/folder/outbox', icon: 'paper-plane' },
-    { title: 'Favorites', url: '/folder/favorites', icon: 'heart' },
-    { title: 'Archived', url: '/folder/archived', icon: 'archive' },
-    { title: 'Trash', url: '/folder/trash', icon: 'trash' },
-    { title: 'Spam', url: '/folder/spam', icon: 'warning' },
-  ];
-  user:any={
-    firstname: '',
-    lastname: '',
-    email: '',
-    prefix: 0,
-    phone: 0,
-    password: '',
-    role: '',
-    vehicule: null,
-    token: ''
-  }
+  depart!: google.maps.LatLng | undefined;
+  destination!: google.maps.LatLng | undefined;
+
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  constructor(private storage: StorageService, private st:Storage) { }
+  constructor(private storage: StorageService, private st:Storage) {
+
+  }
 
   ngOnInit() {
   }
 
+  getGeo(place:google.maps.LatLng, key:string){
+    if(key=='depart') {
+      this.depart = place
+    }else {this.destination=place}
+
+  }
+
+  setMapGeo(){
+    if(this.depart && this.destination){
+      console.log('setMapGeo',true);
+      const DepartDestination = {
+        depart: this.depart,
+        destination: this.destination
+      }
+    }
+  }
   // private ensureScript() {
   //   const document = this.mapDiv.nativeElement.ownerDocument;
   //   const script = <HTMLScriptElement>document.querySelector('script[id="googlemaps"]');
