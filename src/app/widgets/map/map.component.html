@@ -1,11 +1,14 @@
-<p>
-  map works!
-</p>
-<google-map height="40vh"
-      width="93vw"
-      [center]="center"
-      [zoom]="zoom2"
-      (mapClick)="moveMap($event)"
-      (mapMousemove)="move($event)">
-    <map-directions-renderer *ngIf="directionResult" [directions]="directionResult"></map-directions-renderer>
-      </google-map>
+<!--<p>map works!</p>-->
+<!--<google-map #map-->
+<!--            height="40vh"-->
+<!--            width="93vw"-->
+<!--            [center]="center"-->
+<!--            [zoom]="zoom"-->
+<!--            (mapClick)="moveMap($event)"-->
+<!--            (mapMousemove)="move($event)">-->
+<!--  <map-directions-renderer *ngIf="directionResult" [directions]="directionResult"></map-directions-renderer>-->
+<!--  <map-marker [position]="currentPosition" icon="http://maps.google.com/mapfiles/ms/icons/blue-dot.png"></map-marker>-->
+
+<!--</google-map>-->
+<capacitor-google-map id="map" #map></capacitor-google-map>
+

@@ -21,19 +21,20 @@ export class LoginComponent  implements OnInit {
     ]),
   });
   constructor(private router: Router,
-    private store: Store) { } 
+    private store: Store) { }
 
   ngOnInit() {}
 
   login(){
+    this.router.navigate(['/home'])
 
     if(this.formLogin.value.email && this.formLogin.value.password){
       console.log('this.formLogin.value',this.formLogin.value);
-      
-      this.store.dispatch(getLogin({email:this.formLogin.value.email, password:this.formLogin.value.password}))    
 
-    }    
-    //this.router.navigateByUrl('/home'); 
-    
+      this.store.dispatch(getLogin({email:this.formLogin.value.email, password:this.formLogin.value.password}))
+
+    }
+    //this.router.navigateByUrl('/home');
+
   }
 }

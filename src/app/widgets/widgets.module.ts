@@ -7,6 +7,7 @@ import {IonicModule} from "@ionic/angular";
 import {RouterLinkActive, RouterModule} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
 import {GoogleAutocompleteInputComponent} from "./google-autocomplete-input/google-autocomplete-input.component";
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 
 
@@ -20,6 +21,7 @@ import {GoogleAutocompleteInputComponent} from "./google-autocomplete-input/goog
     RouterLinkActive,
     RouterModule
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [MapComponent, SideMenuComponent, GoogleAutocompleteInputComponent]
 })
 export class WidgetsModule { }

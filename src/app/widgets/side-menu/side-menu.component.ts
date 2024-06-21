@@ -29,8 +29,8 @@ export class SideMenuComponent  implements OnInit {
   constructor(private  storage: StorageService) { }
 
   async ngOnInit() {
-    this.user= await this.storage.get('user')
-    console.log('this.user', this.user);
+    // this.user= await this.storage.get('user')
+    // console.log('this.user', this.user);
   }
 
 }

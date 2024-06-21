@@ -38,6 +38,7 @@ export class HomeComponent  implements OnInit {
       }
     }
   }
+
   // private ensureScript() {
   //   const document = this.mapDiv.nativeElement.ownerDocument;
   //   const script = <HTMLScriptElement>document.querySelector('script[id="googlemaps"]');
